@@ -155,11 +155,11 @@ int ON_wString::ScanBufferVargs(
   if (nullptr == args)
     return -1;
   return _vswscanf_s_l(buffer, format, ON_Locale::InvariantCulture.NumericLocalePtr(), args);
-#elif defined(ON_RUNTIME_APPLE)
+#elif defined(ON_RUNTIME_APPLE) && !defined(__aarch64__)
   if (nullptr == args)
     return -1;
   return swscanf_l(buffer, _c_locale, format, args);
-#elif defined(ON_RUNTIME_ANDROID) || defined(ON_RUNTIME_LINUX)
+#elif defined(ON_RUNTIME_ANDROID) || defined(ON_RUNTIME_LINUX) || defined(__aarch64__)
   return swscanf(buffer, format, args);
 #else
   return swscanf(buffer, format, args);

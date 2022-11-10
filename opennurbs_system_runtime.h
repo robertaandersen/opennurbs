@@ -35,7 +35,7 @@
 //   ON_RUNTIME_APPLE / ON_RUNTIME_WIN / ON_RUNTIME_ANDROID
 //
 */
-#if (defined(__APPLE__) || defined(TARGET_OS_IPHONE) || defined(TARGET_IPHONE_SIMULATOR) || defined(__IOS__))
+#if (defined(__APPLE__) || defined(TARGET_OS_IPHONE) || defined(TARGET_IPHONE_SIMULATOR) || defined(__IOS__) || defined(__aarch64__))
 
 #if !defined(ON_RUNTIME_APPLE)
 #define ON_RUNTIME_APPLE
