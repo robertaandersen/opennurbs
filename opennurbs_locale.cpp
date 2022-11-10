@@ -33,9 +33,9 @@ static ON_CRT_locale_t ON_CRT_C_locale()
   {
 #if defined(ON_RUNTIME_WIN)
     ON_C_locale = _create_locale(LC_ALL, "C");
-#elif defined(ON_RUNTIME_APPLE)
+#elif defined(ON_RUNTIME_APPLE) && !defined(__aarch64__)
     ON_C_locale = _c_locale;
-#elif defined(ON_RUNTIME_ANDROID) || defined(ON_RUNTIME_LINUX)
+#elif defined(ON_RUNTIME_ANDROID) || defined(ON_RUNTIME_LINUX) || defined(__aarch64__)
     ON_C_locale = 0;
 #else
     ON_C_locale = _create_locale(category, locale);
